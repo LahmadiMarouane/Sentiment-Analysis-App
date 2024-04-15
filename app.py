@@ -3,7 +3,7 @@ import pandas as pd
 import re
 from transformers import pipeline
 import matplotlib.pyplot as plt
-
+import torch
 # Load the first 10 rows of the DataFrame
 @st.cache_data
 def load_data():
