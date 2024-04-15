@@ -1,9 +1,10 @@
 import streamlit as st
 import pandas as pd
 import re
+import torch
 from transformers import pipeline
 import matplotlib.pyplot as plt
-import torch
+
 # Load the first 10 rows of the DataFrame
 @st.cache_data
 def load_data():
@@ -54,7 +55,7 @@ def main():
     if st.button("Analyze CSV") and uploaded_file:
         # Read the CSV file
         df = pd.read_csv(uploaded_file)
-        df = df.head(10)
+        
         # Perform sentiment analysis on the review column
         if 'review' in df.columns:
             df['clean_review'] = df['review'].apply(clean_text)
